@@ -11,8 +11,8 @@ remove_nfc() {
     rm -r /system/app/NfcNci
 }
 
-if [ "$sku" == "XT1687" ] || [ "$device" == "cedric" ]; then
-    # XT1687 and cedric don't have NFC chips
+if [ "$sku" == "XT1790" ]  || [ "$sku" == "XT1792" ] || [ "$sku" == "XT1795" ]; then
+    # XT1790, XT1792 and XT1795 don't have NFC
     remove_nfc
 fi
 
@@ -23,8 +23,8 @@ if [ "$device" == "montana" ]; then
     fi
 fi
 
-if [ "$sku" != "XT1687" ]; then
-    # Only XT1687 variant got a compass
+if [ "$sku" != "XT1790" ] || [ "$sku" != "XT1792" ] || [ "$sku" != "XT1795" ]; then
+    # XT1790,XT1792 and XT1795 have a compass
     rm /system/vendor/etc/permissions/android.hardware.sensor.compass.xml
 fi
 
