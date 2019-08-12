@@ -754,6 +754,8 @@ public class KeyHandler implements DeviceKeyHandler {
 
     private void registerFPScreenOffListener(final int scanCode) {
         mProximityWakeLock.acquire();
+	    
+	try {
         mSensorManager.registerListener(new SensorEventListener() {
             @Override
             public void onSensorChanged(SensorEvent event) {
@@ -775,7 +777,14 @@ public class KeyHandler implements DeviceKeyHandler {
             public void onAccuracyChanged(Sensor sensor, int accuracy) {
             }
 
-        }, mProximitySensor, SensorManager.SENSOR_DELAY_FASTEST);
+           }, mProximitySensor, SensorManager.SENSOR_DELAY_FASTEST);
+       }
+       catch(e){
+	       String errwhere = "KeyHandler";
+	       Log.i(errwhere, "Try on registerFPScreenOffListener");
+       }
+	    
+	    
     }
 
 
