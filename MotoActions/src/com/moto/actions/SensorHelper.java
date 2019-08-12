@@ -94,10 +94,27 @@ public class SensorHelper {
     }
 
     public void registerListener(Sensor sensor, SensorEventListener listener) {
+        if(listener == null){
+            Log.i("registerListener Error","Listener Null!");
+            return;
+        }
+        if(sensor == null){
+            Log.i("registerListener Error","Sensor Null!");
+            return;
+        }
+        
+        try {
         if (!mSensorManager.registerListener(listener, sensor,
             SensorManager.SENSOR_DELAY_NORMAL, BATCH_LATENCY_IN_MS * 1000)) {
-            throw new RuntimeException("Failed to registerListener for sensor " + sensor);
+            Log.i("Native Error","Failed to registerListener for sensor " + sensor);
         }
+            }
+        catch(e){
+            Log.i("mSensorManager Error","listener or sensor still null");
+            return;
+        }
+        
+        
     }
 
     public void unregisterListener(SensorEventListener listener) {
