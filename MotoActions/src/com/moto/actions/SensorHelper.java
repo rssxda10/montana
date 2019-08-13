@@ -61,7 +61,9 @@ public class SensorHelper {
             }
             writer.close();
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            Log.i("SensorException","Sensor not found on sensors.txt");
+
+            //throw new RuntimeException(e);
         }
     }
 
@@ -109,7 +111,7 @@ public class SensorHelper {
             Log.i("Native Error","Failed to registerListener for sensor " + sensor);
         }
             }
-        catch(e){
+        catch (Exception e) {
             Log.i("mSensorManager Error","listener or sensor still null");
             return;
         }
