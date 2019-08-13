@@ -673,6 +673,7 @@ public class KeyHandler implements DeviceKeyHandler {
                     }
                 });
             } catch (Exception e) {
+		    Log.i("PiP","PiP not supported!");
             }
             return;
         }
@@ -762,7 +763,7 @@ public class KeyHandler implements DeviceKeyHandler {
                 mProximityWakeLock.release();
                 mSensorManager.unregisterListener(this);
                 if (!mFPScreenOffGesturesHandler.hasMessages(FP_ACTION_REQUEST)) {
-                    // The sensor took to long, ignoring.
+                //The sensor took too long, ignoring.
                     return;
                 }
                 mFPScreenOffGesturesHandler.removeMessages(FP_ACTION_REQUEST);
@@ -779,9 +780,10 @@ public class KeyHandler implements DeviceKeyHandler {
 
            }, mProximitySensor, SensorManager.SENSOR_DELAY_FASTEST);
        }
-       catch(e){
-	       String errwhere = "KeyHandler";
-	       Log.i(errwhere, "Try on registerFPScreenOffListener");
+       catch (Exception e) {
+	       
+	       Log.i("KeyHandler", "Try on registerFPScreenOffListener");
+	       return;
        }
 	    
 	    
@@ -858,7 +860,7 @@ public class KeyHandler implements DeviceKeyHandler {
                 mProximityWakeLock.release();
                 mSensorManager.unregisterListener(this);
                 if (!mScreenOffGesturesHandler.hasMessages(GESTURE_REQUEST)) {
-                    // The sensor took to long, ignoring.
+                    // The sensor took too long, ignoring.
                     return;
                 }
                 mScreenOffGesturesHandler.removeMessages(GESTURE_REQUEST);
