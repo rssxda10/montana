@@ -63,3 +63,4 @@ allow init proc:file { open write };
 allow init sysfs_capsense:file setattr;
 
 allow init sysfs:file write;
+allow init sysfs:file open;

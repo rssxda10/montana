@@ -22,3 +22,6 @@ allow rild proc:file { open read };
 set_prop(rild, vendor_radio_prop)
 allow rild system_data_file:dir write;
 allow rild system_data_file:sock_file write;
+allow rild shell_exec:file execute;
+allow rild system_data_file:dir add_name;
+
