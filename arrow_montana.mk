@@ -50,9 +50,9 @@ PRODUCT_MANUFACTURER := motorola
 PRODUCT_GMS_CLIENTID_BASE := android-motorola
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRIVATE_BUILD_DESC="blueline-user 9 PQ3A.190505.002 5450365 release-keys"
+    PRIVATE_BUILD_DESC="blueline-user 9 PQ3A.190801.002 5670241 release-keys"
 
 # Set BUILD_FINGERPRINT variable to be picked up by both system and vendor build.prop
-BUILD_FINGERPRINT := google/blueline/blueline:9/PQ3A.190505.002/5450365:user/release-keys
-VENDOR_BUILD_FINGERPRINT := google/blueline/blueline:9/PQ3A.190505.002/5450365:user/release-keys
+BUILD_FINGERPRINT := google/blueline/blueline:9/PQ3A.190801.002/5670241:user/release-keys \
+VENDOR_BUILD_FINGERPRINT := google/blueline/blueline:9/PQ3A.190801.002/5670241:user/release-keys
 
