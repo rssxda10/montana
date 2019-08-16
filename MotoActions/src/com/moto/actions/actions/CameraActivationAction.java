@@ -53,11 +53,14 @@ public class CameraActivationAction implements SensorAction {
 
     @Override
     public void action() {
-        vibrate();
-        turnScreenOn();
+		vibrate();
+		
+		// Only turn screen on if action works.
         if (mKeyguardManager.inKeyguardRestrictedInputMode()) {
+			turnScreenOn();
             launchSecureCamera();
         } else {
+			turnScreenOn();
             launchCamera();
         }
     }
