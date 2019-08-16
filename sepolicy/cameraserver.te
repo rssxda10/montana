@@ -29,7 +29,7 @@ allow cameraserver cameraserver:process { execmem };
 allow cameraserver self:netlink_kobject_uevent_socket { read bind create setopt };
 allow cameraserver default_android_service:service_manager find;
 allow cameraserver rootfs:lnk_file getattr;
-allow cameraserver init:unix_dgram_socket { sendto};
+allow cameraserver init:unix_dgram_socket { sendto };
 
 binder_call(cameraserver, hal_perf_default)
 binder_call(cameraserver, hal_configstore_default)
